@@ -7,7 +7,7 @@ resource "aws_instance" "terraform_webserver" {
 
   network_interface {
     device_index         = 0
-    network_interface_id = aws_network_interface.terraform_servernic.id
+    network_interface_id = aws_network_interface.servernic.id
   }
 
 
