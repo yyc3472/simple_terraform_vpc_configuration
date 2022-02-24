@@ -7,7 +7,7 @@ resource "aws_internet_gateway" "gateway" {
 }
 # 3.route table
 
-resource "aws_route_table" "terraform_routetable" {
+resource "aws_route_table" "route_table" {
   vpc_id = aws_vpc.terraform_vpc.id
 
   route {
@@ -42,14 +42,14 @@ resource "aws_subnet" "subnet_1" {
 
 resource "aws_route_table_association" "a" {
   subnet_id      = aws_subnet.subnet_1.id
-  route_table_id = aws_route_table.terraform_routetable.id
+  route_table_id = aws_route_table.routetable.id
 }
 
 
 
 #7 Create a network interface with an ip in the subnet that was created in step 4
 
-resource "aws_network_interface" "terraform_servernic" {
+resource "aws_network_interface" "servernic" {
   subnet_id       = aws_subnet.subnet_1.id
   private_ips     = ["10.0.1.50"]
   security_groups = [aws_security_group.allow_web.id]
@@ -58,9 +58,9 @@ resource "aws_network_interface" "terraform_servernic" {
 
 #8 Assign elastic IP to the network interface created in step 7
 
-resource "aws_eip" "one" {
+resource "aws_eip" "elastic_ip" {
   vpc                       = true
-  network_interface         = aws_network_interface.terraform_servernic.id
+  network_interface         = aws_network_interface.servernic.id
   associate_with_private_ip = "10.0.1.50"
 
   depends_on = [aws_internet_gateway.gateway]
