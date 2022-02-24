@@ -1,5 +1,5 @@
 # Terraform VPC
-Configuration in this directory creates VPC resources which may be sufficient for development environment.
+Configuration in this directory maps out aws VPC resources for a simple development environment.
 
 Includes github actions for Testing.
 
