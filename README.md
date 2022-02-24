@@ -1,7 +1,6 @@
 # Terraform VPC
-Configuration in this directory maps out aws VPC resources for a simple development environment.
+Configuration in this directory maps out aws VPC resources for a simple development environment inside github Actions.
 
-Includes github actions for Testing.
 
 ## Usage
 
