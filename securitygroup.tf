@@ -3,7 +3,7 @@
 resource "aws_security_group" "allow_ssh" {
   name        = "allow_web_traffic"
   description = "Allow web traffic"
-  vpc_id      = aws_vpc.terraform_vpc.id
+  vpc_id      = aws_vpc.prod_vpc.id
 
 
   ingress {
